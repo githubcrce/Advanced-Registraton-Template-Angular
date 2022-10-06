@@ -25,11 +25,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {  MatTooltipModule } from '@angular/material/tooltip';
-import { IconProp } from '@fortawesome/fontawesome-svg-core'; 
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { RegisterComponent } from './register/register.component'; 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
