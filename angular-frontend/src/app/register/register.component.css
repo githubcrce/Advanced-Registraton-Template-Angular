@@ -1,0 +1,289 @@
+/*Slide Toggle*/
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #3F4D98;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #3F4D98;
+}
+
+/*Checkbox*/
+:host ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+    background-color:#3F4D98;
+  }
+  
+:host ::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #3F4D98 !important;
+  }
+:host ::ng-deep.mat-checkbox-ripple .mat-ripple-element,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #3F4D98 !important;
+  }
+
+/*Radio Buttons*/
+:host ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: #3F4D98 !important;
+  }
+  
+:host ::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color:#3F4D98 !important;
+  }
+  
+:host ::ng-deep.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    background-color: #3F4D98 !important;
+  }
+
+ :host ::ng-deep .mat-tab-label .mat-tab-label-content,
+  .mat-tab-label:focus {
+    font-size: 20px;
+    color:#3F4D98 !important;
+    font-weight:400 ;
+}
+:host ::ng-deep .mat-form-field-underline{
+    height:0px !important;
+    width:0px !important;
+}
+:host ::ng-deep .mat-form-field-flex{
+    background-color:white !important;
+    height: 55px !important;
+    width: 220px !important;
+    border-radius: 7px !important;
+    border: 1px solid gray !important;
+    font-size:18px !important;
+    padding: 0 7px 7px 7px !important;
+}
+:host ::ng-deep .mat-input-element{
+    padding-bottom:7px !important;
+}
+
+:host ::ng-deep.mat-tab-label.mat-tab-label-active:not(.mat-tab-disabled),
+:host ::ng-deep.mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled) {
+  color: #3F4D98 !important;
+  opacity: 1 !important;
+}
+::ng-deep .red-snackbar{
+    height:50px;
+    color:white;
+    background-color:crimson;
+    border:2px solid black;
+}
+::ng-deep .green-snackbar{
+    height:50px;
+    color:white;
+    background-color:green;
+    border:2px solid black;
+}
+::ng-deep .mat-simple-snackbar-action {
+    color: white;
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+h3, h1{
+    font-weight: bold;
+    font-size: 25px;
+}
+#register-container{
+    display:flex;
+    justify-content:center;
+    margin-top: 30px;
+}
+.bigger-padding{
+    padding:4.5%;
+}
+.smaller-padding{
+    padding:1%;
+}
+#left-container-1{
+    background-color:#ffffff;
+    width: fit-content;
+    max-width: 500px;
+    padding: 4.4%;
+    border-left: gray solid 0.5px;
+    border-bottom: gray solid 0.5px;
+    border-top:gray solid 0.5px;
+}
+.user-group{
+    margin-bottom:10px;
+}
+.mat-button-toggle-checked{
+    background-color:#3F4D98;
+    color:white;
+}
+#input-aadhaar{
+    width:200px;
+    font-size: 20px;
+    border-radius:5px;
+}
+.aadhaar-validation{
+    display:flex;
+}
+.validate-btn{
+    margin-left: 15px;
+    margin-top: 40px;
+}
+.validate-btn,
+.continue-btn{
+    display:block;
+    width:200px;
+    height:50px;
+    font-size:17px;
+    margin-bottom:10px;
+}
+.validate-btn{
+    background-color:#006654;
+    color:white;
+}
+#validated-success{
+    color:green;
+}
+#validated-error{
+    color:#CD2026;
+    display:flex;
+}
+mat-radio-container{
+    padding-left:4px;
+}
+mat-radio-button{
+    margin-right:25px;
+}
+.message-display{
+    margin-top:10px;
+}
+#right-container{
+    background-color:#FAFBFD;
+    padding:12%;
+    border-right: gray solid 0.5px;
+    border-bottom: gray solid 0.5px;
+    border-top:gray solid 0.5px;
+}
+.card-image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+/*Registration container*/
+#registration-container{
+    border: gray solid 0.5px;
+    width: 1000.35px;
+    margin: 20px auto;
+    height: 638.01px;
+    padding: 20px;
+}
+.forms-class{
+    margin: 20px auto 0 auto;
+    font-size: 22px;
+    font-weight: 500;
+}
+.tab-class{
+    font-size:20px;
+}
+.label-field{
+    font-size: 17px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    display:block;
+    margin-bottom: 7px;
+}
+.middle-name-field{
+    font-size: 17px;
+    font-family: 'Roboto';
+    font-weight: 400;
+    display:inline-block;
+    margin-bottom: 7px;
+}
+.input-field,
+.input-field-2{
+    border-radius: 7px;
+    padding-left: 7px;
+    height: 55px;
+    font-size: 18px;
+    font-weight: 400;
+    border: 1px solid gray;
+    color: rgb(0,0,0,0.65);
+    width: 200px;
+}
+.input-field-2{
+    width: 260px;
+    color:black;
+}
+.form-field{
+    margin-top:30px;
+}
+.flex-form-field{
+    display:flex;
+    margin-top:30px;
+}
+.name-div,.password-div{
+    margin-right:20px;
+}
+mat-radio-button{
+    font-size: 18px;
+    font-weight: 400;
+}
+.end-buttons{
+    display:flex;
+    justify-content:space-between;
+}
+.back-button,
+.cancel-btn{
+    display:block;
+    width:150px;
+    height:50px;
+    font-size:17px;
+    margin-bottom:10px;
+    border:crimson solid 1px;
+    color:crimson;
+}
+.back-button{
+    padding-left:0;
+}
+.visibility-icon,
+.visibility-icon-2{
+    position: absolute;
+    margin-left: 225px;
+    margin-top: 15px;
+}
+.birth-form-field{
+    display: flex;
+}
+.blood-field{
+    margin-left:60px;
+}
+.custom-select-1{
+    font-size: 20px;
+    border-radius:7px;
+    height:55px;
+    color:black; 
+    width:250px;
+    padding: 0 0 0 10px;
+    border: 1px solid gray;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right #fff;
+    -webkit-appearance: none;
+    background-position-x: 224px;
+}
+.error-fn,
+.error-mn,
+.error-ln{
+    position:absolute;
+    margin-left:-35px;
+    margin-top: 15px;
+    color:crimson;
+}
+.input-91{
+    width: 50px;
+    height: 55px;
+    border-radius: 7px;
+    border: 1px solid gray;
+    color: black;
+    padding-left: 7px;
+    margin-right: 8px;
+    font-size: 18px;
+}

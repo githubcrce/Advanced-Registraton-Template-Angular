@@ -1,0 +1,154 @@
+<div id="register-container" [ngClass]="{'smaller-padding':this.validated, 'bigger-padding':!this.validated}" *ngIf="!nextRegistrationPageDisplay">
+    <div id="left-container-1">
+        <h1 style="font-size:30px;">Let's get started</h1>
+        <h3>Register as</h3>
+        <mat-button-toggle-group class="user-group" #group="matButtonToggleGroup" [value]="user" (change)="onValChange(group.value)">
+            <mat-button-toggle value="Seafarer">Seafarer</mat-button-toggle>
+            <mat-button-toggle value="Vessel Owner">Vessel Owner</mat-button-toggle>
+        </mat-button-toggle-group>
+        <div class="aadhaar-validation">
+            <div>
+                <label style="font-size: 18px;margin-top: 10px;display:block;" class="form-label">Aadhaar Number<span style="color:crimson;">*</span></label>
+                <mat-form-field appearance="fill" floatLabel="never">
+                    <input [(ngModel)]="aadhaar" matInput (ngModelChange)="onValueChanged()">
+                </mat-form-field>
+            </div>
+            <button class="validate-btn" mat-raised-button color="primary" (click)="validateAadhaar()">Validate</button>
+        </div>
+        <div *ngIf="validated" id="validated-success">
+            <div style="display:flex;">
+                <mat-icon style="margin-right:7px;">check_circle</mat-icon>
+                <p style="padding-top:2px;"><b>Success : </b>Aadhaar validated successfully.</p>
+            </div>
+            <p>Upon clicking Continue you agree to register as "{{user}}"</p>
+            <p class="message-display"><b>Note: </b>Please ensure your Status is correct as details in subsequent screens will be based on your Status.</p>
+        </div>
+        <div *ngIf="!validated && aadhaar.length>0 && buttonClicked" id="validated-error">
+            <mat-icon style="padding-top:7px;">error</mat-icon>
+            <p class="message-display"><b>Error : </b>The Aadhaar entered does not exist. Please retry.</p>
+        </div>
+        <div>
+            <!-- [disabled]="this.enableContinue" -->
+            <button mat-raised-button class="continue-btn" color="primary" [disabled]="!validated" (click)="continueClick()">Continue <mat-icon>keyboard_arrow_right</mat-icon></button>
+            <button mat-stroked-button color="primary" class="cancel-btn" (click)="cancelRegistration()">Cancel</button>
+
+        </div>
+    </div>
+    <div id="right-container">
+        <img class="card-image" src="../../../assets/upload.png"/>
+    </div>
+</div>
+<div id="registration-container" *ngIf="nextRegistrationPageDisplay">
+    <mat-tab-group #tabgroup mat-align-tabs="start" animationDuration="0ms">
+        <mat-tab class="tab-class" label="PERSONAL DETAILS" disabled>
+            <div class="forms-class">
+                <h1>Personal Details</h1>
+                <div class="form-field">
+                    <label class="label-field">Aadhaar Number<span style="color:crimson;">*</span></label>
+                    <input class="input-field" disabled [value]="this.aadhaar">
+                </div>
+                <div class="form-field flex-form-field">
+                    <div class="name-div">
+                        <label class="label-field">First Name<span style="color:crimson;">*</span></label>
+                        <input class="input-field-2" [(ngModel)]="this.firstName" (ngModelChange)="onValueChanged()">
+                        <mat-icon *ngIf="!isValidFirstName" matTooltip="Enter valid First name" class="error-fn">error</mat-icon>
+                    </div>
+                    <div class="name-div">
+                        <label class="label-field">Middle Name</label>
+                        <input class="input-field-2" [(ngModel)]="this.middleName">
+                    </div>
+                    <div class="name-div">
+                        <label class="label-field">Last Name<span style="color:crimson;">*</span></label>
+                        <input class="input-field-2" [(ngModel)]="this.lastName" (ngModelChange)="onValueChanged()">
+                        <mat-icon *ngIf="!isValidLastName" matTooltip="Enter valid Last name" class="error-ln">error</mat-icon>
+                    </div>
+                </div>
+                <div class="form-field birth-form-field">
+                    <div class="birth-field">
+                        <label class="label-field">Date of Birth<span style="color:crimson;">*</span></label>
+                        <mat-form-field appearance="fill" class="example-form-field" floatLabel="never">
+                            <input matInput [matDatepicker]="datepicker" [(ngModel)]="this.dateOfBirth" class="date-input">
+                            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                            <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                            </mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="blood-field">
+                        <label class="label-field">Blood Group<span style="color:crimson;">*</span></label>
+                        <div class="custom-select">
+                            <select class="custom-select-1" [(ngModel)]="this.bloodgroup">
+                                <option class="options" *ngFor="let group of bloodgroups">{{group.viewValue}}</option>  
+                                <mat-divider></mat-divider>
+                            </select>  
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <label class="label-field">Gender<span style="color:crimson;">*</span></label>
+                    <mat-radio-group aria-label="Gender" [(ngModel)]="this.gender">
+                        <mat-radio-button value="Male">Male</mat-radio-button>
+                        <mat-radio-button value="Female">Female</mat-radio-button>
+                        <mat-radio-button value="Transgender">Transgender</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="form-field end-buttons">
+                    <button mat-stroked-button color="primary" class="back-button" (click)="goBack(1)"><mat-icon>keyboard_arrow_left</mat-icon>Back</button>
+                    <button mat-raised-button class="continue-btn" color="primary"  (click)="changeIndex(tabgroup,1)">Continue <mat-icon>keyboard_arrow_right</mat-icon></button>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab class="tab-class" label="CONTACT DETAILS" disabled>
+            <div class="forms-class">
+                <h1>Contact Details</h1>
+                <div style="display:flex;">
+                    <div>
+                        <div class="form-field">
+                            <label class="label-field">Email Address<span style="color:crimson;">*</span></label>
+                            <input type="text" class="input-field-2" [(ngModel)]="this.email">
+                        </div>
+                        <div class="form-field">
+                            <label class="label-field">Mobile Number<span style="color:crimson;">*</span></label>
+                            <input class="input-91" type="text" [(ngModel)]="this.plusNineOne"/>
+                            <input type="number" class="input-field-2" [(ngModel)]="this.phoneNo">
+                            <div style="font-size: 13.5px;
+                            width: 70%;
+                            color: #3F4D98;
+                            text-align: justify;
+                            margin-top: 10px;">**Make sure you enter the correct mobile number, it will be later verified via an OTP**</div>
+                        </div>
+                        <div class="form-field flex-form-field">
+                            <div class="password-div">
+                                <label class="label-field">Password<span style="color:crimson;">*</span></label>
+                                <div style="display:flex;">
+                                    <input [type]="hidePassword ? 'password' : 'text'" class="input-field-2" [(ngModel)]="this.password" (ngModelChange)="onPasswordValidation()">
+                                    <mat-icon matTooltip="Invalid Password (It must contain a special character, 1 number, 1 uppercase and 1 lowercase character)" matSuffix class="visibility-icon" [ngStyle]="{ color: isValidPassword ? 'green' : 'crimson' }" (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </div>
+                            </div>
+                            <div class="conf-password-div">
+                                <label class="label-field">Confirm Password<span style="color:crimson;">*</span></label>
+                                <div style="display:flex;">
+                                    <input [type]="hideConfirmPassword ? 'password' : 'text'" class="input-field-2" [(ngModel)]="this.confirmPassword">
+                                    <mat-icon matTooltip="Invalid Password (It must contain a special character, 1 number, 1 uppercase and 1 lowercase character)" matSuffix class="visibility-icon-2" [ngStyle]="{ color: isValidConfPassword ? 'green' : 'crimson' }" (click)="hideConfirmPassword = !hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="../../../assets/privacy-policy.gif" alt="privacy-policy-gif"  style="height: 335px; margin-left: 50px;" />
+                    </div>
+                </div>
+
+                <div class="form-field end-buttons" style="margin-top:50px;">
+                    <button mat-stroked-button color="primary" class="back-button" (click)="changeIndex(tabgroup,0)"><mat-icon>keyboard_arrow_left</mat-icon>Back</button>
+                    <button mat-raised-button class="continue-btn" color="primary" (click)="register()">Continue <mat-icon>keyboard_arrow_right</mat-icon></button>
+                </div>
+
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
